@@ -235,16 +235,35 @@
   <!-- ALTRE IMMAGINI DI SFONDO (puoi cambiarle in futuro) -->
   <img src="https://source.unsplash.com/MNjNonx4-NA/1920x1080" alt="Trattamento sbiancante in corso">
   <img src="https://source.unsplash.com/ys-bNF00aeQ/1920x1080" alt="Denti bianchi e luminosi">
+<!-- HERO SLIDESHOW -->
+<div class="slideshow-container">
+
+    <div class="slide active" style="background-image: url('cover1.jpg');"></div>
+    <div class="slide" style="background-image: url('cover2.jpg');"></div>
+    <div class="slide" style="background-image: url('cover3.jpg');"></div>
+    <div class="slide" style="background-image: url('cover4.jpg');"></div>
+
+    <div class="overlay"></div>
+
+    <div class="hero-text">
+        <h1>Perfect Smile</h1>
+        <h2>Sbiancamento Dentale Professionale a Vigevano</h2>
+        <a class="hero-btn" href="https://wa.me/393286830274">Prenota Ora</a>
+    </div>
 </div>
-  <div class="hero-content">
-    <h1 style="font-size:4rem; font-weight:900; letter-spacing:1px;">Perfect Smile</h1>
-    <p class="subtitle" style="font-size:1.3rem; margin-top:1rem;">
-      Sbiancamento Dentale Professionale a Vigevano
-    </p>
-    <a href="https://wa.me/393286830274?text=Ciao%2C%20vorrei%20prenotare%20un%20trattamento%20di%20sbiancamento." class="btn hero-btn">
-      Prenota Ora
-    </a>
-  </div>
+
+<script>
+let slideIndex = 0;
+const slides = document.querySelectorAll(".slide");
+
+function showSlides() {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slideIndex = (slideIndex + 1) % slides.length;
+    slides[slideIndex].classList.add("active");
+}
+
+setInterval(showSlides, 8000); // 8 secondi
+</script>
 </section>
 
   <!-- Sezione: Perché scegliere lo sbiancamento dentale -->
