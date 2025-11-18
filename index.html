@@ -3,310 +3,184 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> Perfect Smile Sbiancamento Dentale – Igienista, Vigevano</title>
-  <!-- Google Fonts: Playfair Display for titles, Poppins for text -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <title>Perfect Smile – Sbiancamento Dentale Professionale a Vigevano</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
-    /* Base styles */
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: #000; /* overall page background black for luxury aesthetic */
-      color: #000; /* default text color (will be overridden in dark sections) */
+      background: #000;
+      color: #fff;
     }
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Playfair Display', serif;
-      margin-top: 0;
-      margin-bottom: 0.5em;
-    }
-    p {
-      line-height: 1.6;
-      margin-top: 0;
-      margin-bottom: 1em;
-      font-size: 1rem;
-    }
-    a {
-      color: #caa136; /* gold detail for links */
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    /* Container sections */
-    section {
-      width: 100%;
-      box-sizing: border-box;
-    }
-    /* Hero section */
+
+    html { scroll-behavior: smooth; }
+
+    /* HERO SLIDER */
     #hero {
       position: relative;
       width: 100%;
       height: 100vh;
       overflow: hidden;
-      color: #f6f4dd; /* light beige text on hero */
     }
-    /* Hero background slider */
-    #hero .slides {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-    #hero .slides img {
+
+    .slideshow-container {
       position: absolute;
-      top: 0; left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      top: 0; left: 0;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
       opacity: 0;
-      animation: fade 12s linear infinite;
+      transition: opacity 1.5s ease-in-out;
     }
-    #hero .slides img:nth-child(1) { animation-delay: 0s; }
-    #hero .slides img:nth-child(2) { animation-delay: 4s; }
-    #hero .slides img:nth-child(3) { animation-delay: 8s; }
-    @keyframes fade {
-      0%   { opacity: 0; }
-      5%   { opacity: 1; }
-      30%  { opacity: 1; }
-      40%  { opacity: 0; }
-      100% { opacity: 0; }
+
+    .slide.active {
+      opacity: 1;
     }
-    /* Dark overlay to improve text readability on hero images */
-    #hero::before {
-      content: "";
+
+    .overlay {
       position: absolute;
+      width: 100%;
+      height: 100%;
       top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 2;
     }
-    /* Hero content (text and CTA) */
-    #hero .hero-content {
+
+    .hero-text {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
       text-align: center;
-      padding: 2rem;
-      z-index: 1;
+      color: #f6f4dd;
+      z-index: 3;
+      padding: 1rem;
     }
-    #hero h1 {
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
       font-size: 3rem;
       font-weight: 900;
+      margin: 0;
     }
-    #hero p.subtitle {
-      font-size: 1.2rem;
-      font-weight: 400;
-      margin-bottom: 1.5rem;
+
+    .hero-text h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
+      margin-top: 1rem;
+      font-weight: 300;
     }
-    /* Common section padding (except hero which is full screen) */
-    #perche, #brillantino, #contatti, #frase {
-      padding: 4rem 2rem;
-    }
-    /* Section: Perché scegliere (light beige background, dark text) */
-    #perche {
-      background: #F6F4DD; /* light beige background */
-      color: #000;        /* black text for contrast on light background */
-    }
-    #perche h2 {
-      font-size: 2rem;
-      color: #000;
-    }
-    /* Section: Brillantino Swarovski (dark background, light text) */
-    #brillantino {
-      background: #111;   /* very dark background */
-      color: #f6f4dd;     /* light beige text */
-    }
-    #brillantino h2 {
-      font-size: 2rem;
-      color: #caa136;     /* gold accent for heading */
-    }
-    /* Section: Contatti (dark background, light text) */
-    #contatti {
-      background: #000;
-      color: #f6f4dd;
-      text-align: center;
-    }
-    #contatti h2 {
-      font-size: 2rem;
-      color: #caa136;
-    }
-    #contatti p {
-      margin-bottom: 0.5em;
-      font-size: 1.1rem;
-    }
-    #contatti a {
-      color: #caa136;
-      text-decoration: none;
-    }
-    /* Contact buttons styling */
-    .contact-buttons {
-      margin-top: 1.5rem;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .btn {
+
+    .hero-btn {
       display: inline-block;
-      padding: 0.75em 1.5em;
+      margin-top: 1.8rem;
+      padding: 0.8rem 1.6rem;
       border: 2px solid #caa136;
       color: #caa136;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 1rem;
-      border-radius: 5px;
       background: transparent;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: 0.3s;
     }
-    .btn:hover, .btn:focus {
+
+    .hero-btn:hover {
       background: #caa136;
       color: #000;
     }
-    /* Section: Frase finale (dark background, gold text) */
+
+    /* SEZIONI */
+    section {
+      padding: 4rem 2rem;
+    }
+
+    #perche {
+      background: #f6f4dd;
+      color: #000;
+    }
+
+    #brillantino {
+      background: #111;
+      color: #f6f4dd;
+    }
+
+    #contatti {
+      text-align: center;
+      background: #000;
+      color: #f6f4dd;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      border: 2px solid #caa136;
+      color: #caa136;
+      text-decoration: none;
+      margin: 0.5rem;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #caa136;
+      color: #000;
+    }
+
     #frase {
       background: #000;
       text-align: center;
+      padding: 3rem 1rem;
     }
+
     #frase .final-phrase {
       font-family: 'Playfair Display', serif;
+      color: #caa136;
       font-size: 1.5rem;
       font-style: italic;
-      color: #caa136;
-      max-width: 800px;
-      margin: 0 auto;
     }
-    /* Footer */
+
     footer {
       background: #000;
-      color: #aaa;
+      color: #999;
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.9rem;
     }
-    footer a {
-      color: #caa136;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-    /* Responsive adjustments for smaller screens */
-    @media (max-width: 600px) {
-      #hero h1 {
-        font-size: 2rem;
-      }
-      #hero p.subtitle {
-        font-size: 1rem;
-      }
-      #perche, #brillantino, #contatti, #frase {
-        padding: 3rem 1.5rem;
-      }
-      .contact-buttons {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .contact-buttons .btn {
-        width: 100%;
-        margin: 0.5rem 0;
-      }
-      #frase .final-phrase {
-        font-size: 1.3rem;
-        padding: 0 1rem;
-      }
-    }
-    /* Smooth scrolling for anchor links */
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>/* NEW HERO SLIDER */
-.slideshow-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-}
 
-.slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 1.5s ease-in-out;
-}
-
-.slide.active {
-  opacity: 1;
-}
-
-/* overlay */
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.45);
-  z-index: 1;
-}
-
-/* hero text */
-.hero-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  text-align: center;
-  color: #f6f4dd;
-}
-
-.hero-text h1 {
-  font-size: 3rem;
-  margin: 0;
-  font-weight: 900;
-}
-
-.hero-text h2 {
-  font-size: 1.4rem;
-  margin: 1rem 0 2rem 0;
-}
-
-.hero-btn {
-  padding: 12px 25px;
-  border: 2px solid #caa136;
-  color: #caa136;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  background: rgba(0,0,0,0.4);
-}
+    footer a { color: #caa136; }
+  </style>
 </head>
+
 <body>
-<!-- Hero Section -->
+
+<!-- HERO -->
 <section id="hero">
 
   <div class="slideshow-container">
 
-      <div class="slide active" style="background-image: url('cover1.jpg');"></div>
-      <div class="slide" style="background-image: url('cover2.jpg');"></div>
-      <div class="slide" style="background-image: url('cover3.jpg');"></div>
-      <div class="slide" style="background-image: url('cover4.jpg');"></div>
+    <div class="slide active" style="background-image:url('cover1.jpg');"></div>
+    <div class="slide" style="background-image:url('cover2.jpg');"></div>
+    <div class="slide" style="background-image:url('cover3.jpg');"></div>
+    <div class="slide" style="background-image:url('cover4.jpg');"></div>
 
-      <div class="overlay"></div>
+  </div>
 
-      <div class="hero-text">
-        <h1>Perfect Smile</h1>
-        <h2>Sbiancamento Dentale Professionale a Vigevano</h2>
-        <a class="hero-btn" href="https://wa.me/393286830274">Prenota ora</a>
-      </div>
+  <div class="overlay"></div>
 
+  <div class="hero-text">
+    <h1>Perfect Smile</h1>
+    <h2>Sbiancamento Dentale Professionale a Vigevano</h2>
+    <a class="hero-btn" href="https://wa.me/393286830274">Prenota Ora</a>
   </div>
 
 </section>
@@ -316,64 +190,46 @@ let slideIndex = 0;
 const slides = document.querySelectorAll(".slide");
 
 function showSlides() {
-    slides.forEach(slide => slide.classList.remove("active"));
-    slideIndex = (slideIndex + 1) % slides.length;
-    slides[slideIndex].classList.add("active");
+  slides.forEach(s => s.classList.remove("active"));
+  slideIndex = (slideIndex + 1) % slides.length;
+  slides[slideIndex].classList.add("active");
 }
 
 setInterval(showSlides, 8000);
 </script>
 
+<!-- PERCHÉ -->
+<section id="perche">
+  <h2>Perché scegliere lo sbiancamento dentale</h2>
+  <p>La bellezza di un sorriso luminoso va oltre la semplice estetica: denti più bianchi aumentano sicurezza e fascino naturale...</p>
+</section>
 
-  <!-- Sezione: Perché scegliere lo sbiancamento dentale -->
-  <section id="perche">
-    <h2>Perché scegliere lo sbiancamento dentale</h2>
-    <p>La bellezza di un sorriso luminoso va oltre la semplice estetica: denti più bianchi e brillanti regalano maggiore sicurezza in se stessi e un’impressione positiva in ogni occasione. Scegliere lo sbiancamento dentale professionale significa prendersi cura di sé in modo sicuro e controllato, con trattamenti efficaci che rispettano lo smalto dei denti. Ritrova la voglia di sorridere liberamente, sapendo che il tuo sorriso risplende di salute e bellezza.</p>
-  </section 
-    
-  <!-- Sezione: Brillantino Swarovski -->
-  <section id="brillantino">
-    <h2>Brillantino Swarovski: il ritorno del sorriso gioiello</h2>
-    <p>Direttamente dagli anni Duemila, la tendenza del <strong>brillantino al dente</strong> è tornata prepotentemente di moda. Questo piccolo cristallo Swarovski applicato su un dente anteriore sta conquistando chi desidera distinguersi con un sorriso fuori dal comune. Reso popolare da celebrità e influencer, il brillantino comunica uno stile personale e audace, aggiungendo luce e carattere al tuo sorriso. È un dettaglio glamour che, applicato in modo professionale e sicuro, dona un tocco di brillante originalità senza mai perdere eleganza.</p>
-  </section>
+<!-- BRILLANTINO -->
+<section id="brillantino">
+  <h2>Brillantino Swarovski</h2>
+  <p>Il brillantino dentale è tornato di moda: un dettaglio luminoso, elegante e distintivo...</p>
+</section>
 
+<!-- CONTATTI -->
+<section id="contatti">
+  <h2>Contatti</h2>
+  <p>Email: <a href="mailto:sbiancamentodentalclinic@gmail.com">sbiancamentodentalclinic@gmail.com</a></p>
 
-  <h2>Prenota la tua seduta</h2>
-    <p>Le visite si effettuano <strong>su prenotazione</strong>. Compila il form qui sotto o scrivici via email per ricevere maggiori informazioni o fissare un appuntamento.</p>
+  <a class="btn" href="https://wa.me/393286830274">WhatsApp</a>
+  <a class="btn" href="https://instagram.com/perfectsmile.it">Instagram</a>
+  <a class="btn" href="mailto:sbiancamentodentalclinic@gmail.com">Email</a>
+</section>
 
-    <form action="mailto:sbiancamentodentalclinic@gmail.com" method="POST" enctype="text/plain">
-      <!-- Se vuoi usare Formspree, sostituisci l'action con il link del tuo endpoint, es.:
-           action="https://formspree.io/f/abcxyz" -->
-     
+<!-- FRASE -->
+<section id="frase">
+  <p class="final-phrase">Il tuo sorriso è l’accessorio più prezioso che puoi indossare: fallo risplendere.</p>
+</section>
 
-      <label>
+<footer>
+  © 2025 – Igienista Dentale, Vigevano –  
+  <a href="#">Privacy</a> —  
+  <a href="blog.html">Blog</a>
+</footer>
 
-  <!-- Sezione: Contatti -->
-  <section id="contatti">
-
-
-    
-    <h2>Contatti</h2>
-    <p>Email: <a href="mailto:sbiancamentodentalclinic@gmail.com">sbiancamentodentalclinic@gmail.com</a></p>
-  
-    <div class="contact-buttons">
-      <a class="btn" href="https://wa.me/393286830274?text=Ciao%2C%20vorrei%20prenotare%20un%20trattamento%20di%20sbiancamento.">WhatsApp</a>
-      <a class="btn" href="https://instagram.com/perfectsmile.it" target="_blank">Instagram</a>
-      <a class="btn" href="mailto:sbiancamentodentalclinic@gmail.com?subject=Informazioni%20Trattamento%20Sbiancamento">Email</a>
-    </div>
-  </section>
-
-  <!-- Sezione: Frase finale ispirazionale -->
-  <section id="frase">
-    <p class="final-phrase">Il tuo sorriso è l’accessorio più prezioso che puoi indossare: fallo risplendere.</p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 – Igienista Dentale, Vigevano. Tutti i diritti riservati. 
-      <a href="#">Privacy</a> – 
-      <a href="blog.html">Blog e Consigli Dentali</a>
-    </p>
-  </footer>
 </body>
 </html>
