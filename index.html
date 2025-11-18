@@ -227,24 +227,102 @@
 <body>
 <!-- Hero Section -->
 <section id="hero">
-  <!-- Image slider -->
+
+<style>
+  /* HERO SLIDER - SOLO PER LA COPERTINA */
+  .slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+  }
+
+  .slide.active {
+    opacity: 1;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+    z-index: 2;
+  }
+
+  .hero-text {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #f6f4dd;
+  }
+
+  .hero-btn {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border: 2px solid #caa136;
+    color: #caa136;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .hero-btn:hover {
+    background: #caa136;
+    color: #000;
+  }
+</style>
+
 <div class="slideshow-container">
 
-    <div class="slide active" style="background-image: url('cover1.jpg');"></div>
-    <div class="slide" style="background-image: url('cover2.jpg');"></div>
-    <div class="slide" style="background-image: url('cover3.jpg');"></div>
-    <div class="slide" style="background-image: url('cover4.jpg');"></div>
+  <div class="slide active" style="background-image: url('cover1.jpg');"></div>
+  <div class="slide" style="background-image: url('cover2.jpg');"></div>
+  <div class="slide" style="background-image: url('cover3.jpg');"></div>
+  <div class="slide" style="background-image: url('cover4.jpg');"></div>
 
-    <div class="overlay"></div>
+  <div class="overlay"></div>
 
-    <div class="hero-text">
-        <h1>Perfect Smile</h1>
-        <h2>Sbiancamento Dentale Professionale a Vigevano</h2>
-        <a class="hero-btn" href="https://wa.me/393286830274">Prenota Ora</a>
-    </div>
-</section>
+  <div class="hero-text">
+    <h1>Perfect Smile</h1>
+    <h2>Sbiancamento Dentale Professionale a Vigevano</h2>
+    <a class="hero-btn" href="https://wa.me/393286830274">Prenota Ora</a>
+  </div>
+
+</div>
 
 <script>
+  let slideIndex = 0;
+  const slides = document.querySelectorAll(".slide");
+
+  function showSlides() {
+      slides.forEach(slide => slide.classList.remove("active"));
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add("active");
+  }
+
+  setInterval(showSlides, 8000);
+</script>
+
+</section>
 let slideIndex = 0;
 const slides = document.querySelectorAll(".slide");
 
