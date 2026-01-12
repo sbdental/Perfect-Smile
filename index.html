@@ -6,7 +6,29 @@
   <title> Perfect Smile Sbiancamento Dentale – Igienista, Vigevano</title>
   <!-- Google Fonts: Playfair Display for titles, Poppins for text -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
+  <style> .hero-actions{
+  display:flex;
+  justify-content:center;
+  gap:1.2rem;
+  flex-wrap:wrap;
+}
+.btn-hero{
+  display:inline-block;
+  padding:0.9rem 2rem;
+  border:2px solid #caa136;
+  color:#caa136;
+  font-family:'Poppins',sans-serif;
+  font-weight:600;
+  font-size:1rem;
+  border-radius:6px;
+  background:transparent;
+  text-decoration:none;
+  transition:0.3s ease;
+}
+.btn-hero:hover{
+  background:#caa136;
+  color:#000;
+}
     /* Base styles */
     body {
       margin: 0;
@@ -324,17 +346,13 @@
 </script>
 
 </section>
-let slideIndex = 0;
-const slides = document.querySelectorAll(".slide");
-
-function showSlides() {
-    slides.forEach(slide => slide.classList.remove("active"));
-    slideIndex = (slideIndex + 1) % slides.length;
-    slides[slideIndex].classList.add("active");
-}
-
-setInterval(showSlides,5000);
-</script>
+  
+<!-- PULSANTI SOTTO COPERTINA -->
+<section style="background:#000; padding:2.2rem 1.5rem;">
+  <div class="hero-actions">
+    <a class="btn-hero" href="blog.html">Blog</a>
+    <a class="btn-hero" href="pre-post.html">Pre / Post</a>
+  </div>
 </section>
 
   <!-- Sezione: Perché scegliere lo sbiancamento dentale -->
